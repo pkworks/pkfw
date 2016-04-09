@@ -1,0 +1,4 @@
+rootProject.name = "pkfw"
+
+include "pkfw-core"
+include "pkfw-web"

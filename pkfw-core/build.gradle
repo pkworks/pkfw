@@ -1,0 +1,52 @@
+apply plugin: "maven-publish"
+
+jar {
+    manifest {
+        attributes "Implementation-Title": "PKWorks Framework Core",
+                   "Implementation-Version": version
+    }
+}
+
+dependencies {
+    testCompile group: "junit", name: "junit", version: "4.+"
+
+	compile "commons-io:commons-io:2.4"
+	compile "commons-lang:commons-lang:2.6"
+	compile "commons-collections:commons-collections:3.2.1"
+	compile "commons-codec:commons-codec:1.10"
+	compile "commons-dbcp:commons-dbcp:1.4"
+
+    compile "io.vertx:vertx-core:$vertxVersion"
+    compile "io.vertx:vertx-web:$vertxVersion"
+    compile "io.vertx:vertx-hazelcast:$vertxVersion"
+    compile "io.vertx:vertx-auth-jwt:$vertxVersion"
+
+	compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
+	compile "org.slf4j:slf4j-log4j12:$slf4jVersion"
+
+    compile "org.springframework:spring-core:$springVersion"
+	compile "org.springframework:spring-context:$springVersion"
+	compile "org.springframework:spring-context-support:$springVersion"
+	compile "org.springframework:spring-jdbc:$springVersion"
+
+	compile "org.aspectj:aspectjweaver:$aspectjVersion"
+	compile "javax.inject:javax.inject:1"
+
+	compile "com.google.guava:guava:19.0"
+
+	compile "mysql:mysql-connector-java:5.1.38"
+	compile "org.mybatis:mybatis:3.3.1"
+	compile "org.mybatis:mybatis-spring:1.2.4"
+}
+
+publishing {
+	publications {
+		maven(MavenPublication) {
+			groupId group
+			artifactId "pkfw-web"
+			version version
+
+			from components.java
+		}
+	}
+}

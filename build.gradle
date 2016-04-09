@@ -1,0 +1,35 @@
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+
+	compileJava.options.encoding = "UTF-8"
+	sourceCompatibility = 1.8
+
+	group = "org.pkframework"
+	version = "1.0.0"
+
+	ext {
+		slf4jVersion = "1.7.18"
+		springVersion = "4.2.5.RELEASE"
+		aspectjVersion = "1.8.8"
+		vertxVersion = "3.2.1"
+		springSecurityVersion = "4.0.4.RELEASE"
+
+		pkfwVersion = version
+	}
+
+    repositories {
+       mavenCentral()
+       mavenLocal()
+    }
+
+    [configurations.runtime, configurations.default]*.exclude (module: "commons-logging")
+
+    dependencies {
+        testCompile 'junit:junit:4.8.2'
+    }
+
+    jar {
+        manifest.attributes provider: "PKWorks"
+    }
+}

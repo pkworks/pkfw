@@ -1,0 +1,34 @@
+apply plugin: "maven-publish"
+
+jar {
+    manifest {
+        attributes "Implementation-Title": "PKWorks Framework Web",
+                   "Implementation-Version": version
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+
+	compile "javax.servlet:javax.servlet-api:3.1.0"
+
+	compile "org.springframework:spring-webmvc:$springVersion"
+
+	compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+
+	compile "net.sf.ehcache:ehcache-web:2.0.4"
+
+	compile "org.pkframework:pkfw-core:$pkfwVersion"
+}
+
+publishing {
+	publications {
+		maven(MavenPublication) {
+			groupId group
+			artifactId "pkfw-web"
+			version version
+
+			from components.java
+		}
+	}
+}
