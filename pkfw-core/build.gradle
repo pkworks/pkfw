@@ -43,7 +43,7 @@ publishing {
 	publications {
 		maven(MavenPublication) {
 			groupId group
-			artifactId "pkfw-web"
+			artifactId "pkfw-core"
 			version version
 
 			from components.java
