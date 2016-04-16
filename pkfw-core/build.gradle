@@ -41,12 +41,16 @@ dependencies {
 
 publishing {
 	publications {
-		maven(MavenPublication) {
+		mavenJava(MavenPublication) {
 			groupId group
 			artifactId "pkfw-core"
 			version version
 
 			from components.java
+
+			artifact sourceJar {
+                classifier "sources"
+            }
 		}
 	}
 }

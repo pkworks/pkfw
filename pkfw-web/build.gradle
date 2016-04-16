@@ -29,6 +29,10 @@ publishing {
 			version version
 
 			from components.java
+
+			artifact sourceJar {
+                classifier "sources"
+            }
 		}
 	}
 }

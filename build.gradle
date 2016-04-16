@@ -32,4 +32,9 @@ subprojects {
     jar {
         manifest.attributes provider: "PKWorks"
     }
+
+    task sourceJar(type: Jar) {
+	    from sourceSets.main.allJava
+	}
+
 }
