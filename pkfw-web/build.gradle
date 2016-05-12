@@ -23,7 +23,7 @@ dependencies {
 
 publishing {
 	publications {
-		maven(MavenPublication) {
+		mavenJava(MavenPublication) {
 			groupId group
 			artifactId "pkfw-web"
 			version version
