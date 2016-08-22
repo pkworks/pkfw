@@ -14,9 +14,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 
-public class RestAutorityInterceptor implements MethodInterceptor {
+public class RestAuthorityInterceptor implements MethodInterceptor {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(RestAutorityInterceptor.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(RestAuthorityInterceptor.class);
 
 	@Autowired
 	private MessageSource messageSource;
